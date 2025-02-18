@@ -10,7 +10,7 @@
   &__image {
     position: absolute;
     transition: transform 0.15s ease;
-    width: calc(60vw - u.rem(40));
+    width: calc(55vw - u.rem(40));
 
     @include u.breakpoint(wide) {
       opacity: 0.3;
