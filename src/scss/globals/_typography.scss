@@ -1,0 +1,55 @@
+@use '../utils' as u;
+
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a, a:hover {
+  font-size: clamp(u.rem(14), 0.8rem + 0.44vw, u.rem(18));
+  line-height: 1.3333;
+}
+
+.landing-wrapper {
+  h1 {
+    font-size: clamp(u.rem(32), 1.3rem + 3.516vw, u.rem(64));
+    line-height: 0.9375;
+  }
+
+  h2 {
+    font-size: clamp(u.rem(18), 0.55rem + 2.855vw, u.rem(44));
+    line-height: 1.1818;
+  }
+
+  p {
+    font-size: clamp(u.rem(16), 0.9rem + 0.5vw, u.rem(24));
+    line-height: 1.3333;
+  }
+}
+
+.speakers-wrapper {
+  h1 {
+    font-size: clamp(u.rem(28), 1.5rem + 1.65vw, u.rem(50));
+    line-height: 1.2;
+    margin-bottom: u.rem(32);
+  }
+
+  h2 {
+    font-size: clamp(u.rem(18), 0.729rem + 1.978vw, u.rem(36));
+    line-height: 1.222;
+  }
+
+  h3 {
+    font-size: clamp(u.rem(18), 0.905rem + 1.098vw, u.rem(28));
+    line-height: 1.285;
+  }
+
+  p {
+    font-size: clamp(u.rem(16), 0.912rem + 0.4395vw, u.rem(20));
+    line-height: 1.2;
+  }
+}

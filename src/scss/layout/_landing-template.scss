@@ -1,0 +1,37 @@
+@use '../utils' as u;
+
+.landing-wrapper {
+  font-family: ESBuild, Tahoma, "Trebuchet MS", sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  padding: u.rem(80) u.rem(40) u.rem(120);
+  background-image: image-set(url('../img/hero.png') 1x, url('../img/hero-2x.png') 2x), image-set(url('../img/footer.png') 1x, url('../img/footer-2x.png') 2x);
+  background-position: top right, bottom right;
+  background-repeat: no-repeat;
+  position: relative;
+
+  @include u.breakpoint(wide) {
+    background-size: 100%, 40%;
+  }
+
+  @include u.breakpoint(desktop) {
+    background-size: 60%, 40%;
+  }
+
+  @include u.breakpoint(tablet) {
+    padding: u.rem(50) u.rem(40) u.rem(70);
+  }
+
+  @include u.breakpoint(mobile) {
+    padding: u.rem(20) u.rem(20) u.rem(40);
+  }
+}
+
+.logo {
+  height: u.rem(48);
+  vertical-align: top;
+
+  @include u.breakpoint(mobile) {
+    height: u.rem(30);
+  }
+}

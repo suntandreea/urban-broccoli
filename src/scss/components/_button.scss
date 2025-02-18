@@ -1,0 +1,23 @@
+@use '../utils' as u;
+
+.button {
+  padding: u.rem(12) u.rem(24);
+  border-radius: u.rem(6);
+  background: var(--primary);
+  color: var(--primary-contrast);
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.15s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background: var(--primary-darker);
+  }
+
+  &__label {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}

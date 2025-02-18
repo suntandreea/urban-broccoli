@@ -1,0 +1,49 @@
+@use '../utils' as u;
+
+.info {
+  position: relative;
+  padding: u.rem(24) u.rem(48);
+  border-radius: u.rem(10);
+
+  @include u.breakpoint(tablet) {
+    padding-inline: u.rem(32);
+  }
+
+  @include u.breakpoint(mobile) {
+    padding: u.rem(16);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: u.rem(10);
+    padding: u.rem(2);
+    background: var(--gradient-white-transparent);
+    mask: linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
+  &__content {
+    line-height: 1.5;
+
+    &--emphasis {
+      font-size: clamp(u.rem(16), 0.85rem + 0.75vw, u.rem(28));
+      line-height: 1.2857;
+      display: flex;
+      flex-direction: column;
+      place-items: center;
+
+      & .button {
+        position: relative;
+        z-index: 1;
+        margin-top: u.rem(32);
+      }
+    }
+  }
+
+  &--gray {
+    background: var(--gradient-gray);
+  }
+}

@@ -1,0 +1,22 @@
+:root {
+  --dark: #000000;
+  --light: #ffffff;
+
+  --primary: #00d15f;
+  --primary-darker: #009945;
+  --primary-contrast: #232323;
+  --secondary: #8e71f4;
+
+  --gradient-gray: linear-gradient(-113deg, #373b3f 0%, #2a2b2c 100%);
+  --gradient-white-transparent: linear-gradient(to bottom, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 90%);
+  --gradient-primary-transparent: linear-gradient(to right, var(--primary) 0%, rgba(255, 255, 255, 0) 90%);
+  --gradient-dark-transparent: linear-gradient(-135deg, var(--dark) 0%,transparent 90%);
+
+  --height1: 3.75rem;
+  --height2: 3.75rem;
+  --height3: 3.75rem;
+  --height4: 3.75rem;
+  --height5: 3.75rem;
+  --height6: 3.75rem;
+  --height7: 3.75rem;
+}

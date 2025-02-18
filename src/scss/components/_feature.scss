@@ -1,0 +1,68 @@
+@use '../utils' as u;
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: u.rem(16);
+  transition: transform 0.15s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+
+  &__image {
+    position: relative;
+    border-bottom: u.rem(13) solid var(--primary);
+    border-right: u.rem(13) solid var(--primary);
+    margin-bottom: u.rem(16);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      border-top: u.rem(48) solid transparent;
+      border-left: u.rem(48) solid var(--light);
+      border-bottom: u.rem(48) solid transparent;
+    }
+
+    &::before {
+      top: u.rem(-32);
+      right: u.rem(-21);
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      bottom: u.rem(-45);
+      left: u.rem(-8);
+      transform: rotate(-45deg) scaleX(-1);
+    }
+
+    @media (max-width: u.rem(900)) {
+      &::before, &::after {
+        border-width: u.rem(28);
+      }
+
+      &::before {
+        top: u.rem(-20);
+        right: u.rem(-18);
+      }
+
+      &::after {
+        bottom: u.rem(-32);
+        left: u.rem(-6);
+      }
+    }
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      vertical-align: top;
+    }
+  }
+
+  &__title, &__detail {
+    text-align: center;
+  }
+}

@@ -1,0 +1,29 @@
+@use 'functions' as f;
+@use "sass:map";
+
+$breakpoints-down: (
+  "mobile": f.em(425),
+  "tablet": f.em(768),
+  "desktop": f.em(1024),
+  "wide": f.em(1440)
+);
+
+$breakpoints-up: (
+  "mobile": f.em(424.98),
+  "tablet": f.em(767.98),
+  "desktop": f.em(1023.98),
+  "wide": f.em(1439.98)
+);
+
+@mixin breakpoint($size) {
+  @media (max-width: map.get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map.get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+

@@ -1,0 +1,24 @@
+@use '../utils' as u;
+
+.blog {
+  &__headline {
+    text-align: center;
+    margin-bottom: u.rem(48);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: u.rem(64) u.rem(30);
+
+    @include u.breakpoint(tablet) {
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: u.rem(40);
+    }
+
+    @media (max-width: u.rem(500)) {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: u.rem(30);
+    }
+  }
+}

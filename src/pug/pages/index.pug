@@ -1,0 +1,48 @@
+extends ../layouts/landing-layout
+block content
+  section.js-list
+    -
+      const list = [
+        {
+          'layout': 1,
+          'title' : 'Lorem ipsum dolor.',
+          'text' : 'Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas.'
+        },
+        {
+          'layout': 2,
+          'title': 'Lorem ipsum.',
+          'text': 'Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas.'
+        },
+        {
+          'layout': 3,
+          'title': 'Lorem ipsum dolor.',
+          'text': 'Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. '
+        },
+        {
+          'layout': 2,
+          'title': 'Lorem ipsum dolor sit.',
+          'text': 'Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas.'
+        },
+        {
+          'layout': 1,
+          'title': 'Lorem ipsum dolor sit amet mi sodales in velit eu.',
+          'text': 'Lorem ipsum dolor sit amet sollicitudin dignissim iaculis. Egestas et eu augue faucibus vulputate gravida maximus natoque felis. Ornare quis etiam tristique nisi lacus urna proin inceptos habitant in si. Ultrices feugiat penatibus per cubilia netus si purus neque magnis rhoncus. Ultrices feugiat.'
+        },
+        {
+          'layout': 4,
+          'title': 'Lorem ipsum dolor sit amet proin maecenas. Lorem ipsum dolor sit amet proin maecenas.',
+          'text': 'Lorem ipsum dolor sit amet metus consequat non ante. Taciti erat luctus nibh euismod litora hac congue adipiscing. Consectetuer fames sociosqu conubia pellentesque ridiculus interdum litora neque. Viverra tortor iaculis convallis consequat integer auctor condimentum.'
+        },
+        {
+          'layout': 3,
+          'title': 'Lorem ipsum dolor.',
+          'text': 'Lorem ipsum dolor sit amet metus consequat non ante. Taciti erat luctus nibh euismod litora hac congue adipiscing. Consectetuer fames sociosqu conubia pellentesque ridiculus interdum litora neque. Viverra tortor iaculis convallis consequat integer auctor condimentum.'
+        }
+      ];
+
+    each item, index in list
+      div.argument.fullscreen.grid.js-entry-transition(class=`grid--layout${item.layout}`)
+        h2.argument__headline #{item.title}
+        .argument__image
+          img(srcset=`./img/${index + 1}.png, ./img/${index + 1}-2x.png 2x` src=`./img/${index + 1}-2x.png` alt=`Argument number ${index + 1}`)
+        p.argument__description #{item.text}

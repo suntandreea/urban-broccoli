@@ -1,0 +1,23 @@
+@use '../utils' as u;
+
+@font-face {
+  font-family: ESBuild;
+  src: url("https://css.veeam.com/fonts/es-build-family/web/ES-Build.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}

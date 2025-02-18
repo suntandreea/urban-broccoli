@@ -1,0 +1,9 @@
+extends ../base/base.pug
+block layout
+  article.landing-wrapper
+    .parallax
+      each item, index in [1,2,3,4]
+        img.parallax__image(srcset=`./img/texture${item}.png, ./img/texture${item}-2x.png 2x` src=`./img/texture${item}-2x.png` alt="A textured picture for design effect")
+    include ../partials/hero.pug
+    block content
+    include ../partials/conclusion.pug

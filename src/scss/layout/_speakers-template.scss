@@ -1,0 +1,16 @@
+@use '../utils' as u;
+
+.speakers-wrapper {
+  font-family: Tahoma, "Trebuchet MS", sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  padding: u.rem(100) u.rem(20);
+
+  @include u.breakpoint(tablet) {
+    padding: u.rem(60) u.rem(20);
+  }
+
+  @include u.breakpoint(mobile) {
+    padding: u.rem(40) u.rem(20);
+  }
+}

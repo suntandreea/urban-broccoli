@@ -1,0 +1,57 @@
+extends ../layouts/speakers-layout
+block content
+  -
+    const speakers = [
+      {
+        'name': 'Ana Applgate',
+        'role': 'Chief Executive Officer',
+        'company': 'Veeam Software',
+      },
+      {
+        'name': 'Shaun Le Noir',
+        'role': 'Chief Strategist',
+        'company': 'Azure ',
+      },
+      {
+        'name': 'Alina McKey',
+        'role': 'Marketing Director',
+        'company': 'Cloud Native',
+      },
+      {
+        'name': 'Mike Tailor',
+        'role': 'Social Media Manager',
+        'company': 'Veeam Software',
+      },
+      {
+        'name': 'Mary Poppins',
+        'role': 'Technical Writer',
+        'company': 'Microsoft',
+      },
+      {
+        'name': 'Calvin Klein',
+        'role': 'Lead Cloud Manager',
+        'company': 'American Software ',
+      },
+      {
+        'name': 'Angela Soares',
+        'role': 'Product Owner',
+        'company': 'SaaS Ownership',
+      },
+      {
+
+        'name': 'Antony Shimmer',
+        'role': 'Senior Manager',
+        'company': 'Digital Solutions',
+      },
+    ]
+
+  section.blog__content
+    each speaker, idx in speakers
+      .feature
+        .feature__image
+          picture
+            source(media="(min-width: 1024px)" srcset=`./img/speaker${idx + 1}.png 1x, ./img/speaker${idx + 1}-2x.png 2x`)
+            img(alt=`${speaker.name}` src=`./img/speaker${idx + 1}.png` srcset=`./img/speaker${idx + 1}-2x.png 2x`)
+        h3.feature__title #{speaker.name}
+        p.feature__detail #{speaker.role}
+        p.feature__detail #{speaker.company}

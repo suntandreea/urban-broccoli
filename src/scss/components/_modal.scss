@@ -1,0 +1,135 @@
+@use '../utils' as u;
+
+@supports not selector(::-webkit-scrollbar) {
+  dialog {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+  }
+}
+
+dialog::-webkit-scrollbar-track {
+  border-radius: u.rem(10);
+  background: transparent;
+}
+
+dialog::-webkit-scrollbar {
+  width: u.rem(8);
+  background: transparent;
+}
+
+dialog::-webkit-scrollbar-thumb {
+  border-radius: u.rem(10);
+  background-color: var(--primary);
+}
+
+dialog[open] {
+  opacity: 1;
+}
+
+dialog {
+  opacity: 0;
+}
+
+@starting-style {
+  dialog[open] {
+    opacity: 0;
+  }
+}
+
+dialog::backdrop {
+  background: var(--dark);
+  opacity: 0;
+  transition: display 0.4s allow-discrete,
+  overlay 0.4s allow-discrete,
+  opacity 0.4s allow-discrete,
+}
+
+dialog[open]::backdrop {
+  opacity: 0.7;
+}
+
+@starting-style {
+  dialog[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.modal {
+  width: 80%;
+  max-width: u.rem(810);
+  transition: opacity 0.4s ease-out,
+  overlay 0.4s ease-out allow-discrete,
+  display 0.4s ease-out allow-discrete;
+  padding: 0;
+  color: var(--light);
+  background: var(--primary-contrast);
+  border-radius: u.rem(16);
+  border-left: none;
+  border-bottom: none;
+  border-top: u.rem(4) solid var(--dark);
+  border-right: u.rem(4) solid var(--dark);
+  box-shadow: -8px 12px 36px 0 rgb(0 0 0 / 0.06), -8px 10px 4px 0 rgb(0 0 0 / 0.01), -9px 10.5px 32px 0 rgb(1 1 1 / 0.29);
+  overflow-y: scroll;
+  height: fit-content;
+  scroll-behavior: smooth;
+
+  @include u.breakpoint-up(tablet) {
+    max-height: u.rem(720);
+  }
+
+  &__header {
+    position: relative;
+    padding: u.rem(16) u.rem(32);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: u.rem(16);
+    border-bottom: u.rem(4) solid var(--secondary);
+
+    @include u.breakpoint(mobile) {
+      padding: u.rem(6) u.rem(20);
+    }
+
+    path {
+      fill: var(--light);
+    }
+
+    &__close {
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+        background: var(--dark);
+      }
+    }
+  }
+
+  &__content {
+    padding: u.rem(28) u.rem(98) u.rem(28) u.rem(32);
+
+    @include u.breakpoint(tablet) {
+      padding-inline: u.rem(32);
+    }
+
+    @include u.breakpoint(mobile) {
+      padding: u.rem(20);
+    }
+
+    p {
+      font-size: clamp(u.rem(16), 0.9rem + 0.5vw, u.rem(24));
+      line-height: 1.1666;
+
+      &:not(:last-child) {
+        margin-bottom: u.rem(16);
+      }
+    }
+  }
+}

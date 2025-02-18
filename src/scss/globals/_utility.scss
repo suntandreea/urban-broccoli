@@ -1,0 +1,11 @@
+@use '../utils' as u;
+
+.fullscreen {
+  width: min(100%, u.rem(1230));
+  margin-inline: auto;
+}
+
+.highlight {
+  color: var(--primary);
+  margin-right: 0.5ch;
+}

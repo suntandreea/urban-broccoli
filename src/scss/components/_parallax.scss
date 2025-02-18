@@ -1,0 +1,43 @@
+@use '../utils' as u;
+
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  &__image {
+    position: absolute;
+    transition: transform 0.15s ease;
+    width: calc(60vw - u.rem(40));
+
+    @include u.breakpoint(wide) {
+      opacity: 0.3;
+    }
+
+    @include u.breakpoint(desktop) {
+      display: none;
+    }
+
+    &:nth-child(1) {
+      right: 0;
+      top: 30%;
+    }
+
+    &:nth-child(2) {
+      left: 0;
+      top: 45%;
+    }
+
+    &:nth-child(3) {
+      right: 0;
+      top: 60%;
+    }
+
+    &:nth-child(4) {
+      left: 0;
+      top: 85%;
+    }
+  }
+}

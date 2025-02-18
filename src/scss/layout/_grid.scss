@@ -1,0 +1,137 @@
+@use '../utils' as u;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  gap: u.rem(16) u.rem(30);
+  justify-items: start;
+
+  :nth-child(1) {
+    grid-row: 1 / span 1;
+    align-self: end;
+  }
+
+  :nth-child(2) {
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  :nth-child(3) {
+    grid-row: 2 / span 1;
+    align-self: start;
+  }
+
+  @include u.breakpoint(desktop) {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  @include u.breakpoint(tablet) {
+    align-items: start;
+  }
+}
+
+.grid--layout1 {
+  :nth-child(1), :nth-child(3) {
+    grid-column: 4 / span 7;
+  }
+
+  :nth-child(2) {
+    grid-column: 1 / span 3;
+  }
+}
+
+.grid--layout2 {
+  :nth-child(1), :nth-child(3) {
+    grid-column: 2 / span 7;
+  }
+
+  :nth-child(2) {
+    grid-column: 9 / span 3;
+  }
+
+  @include u.breakpoint(desktop) {
+    :nth-child(1), :nth-child(3) {
+      grid-column: 1 / span 7;
+    }
+    :nth-child(2) {
+      grid-column: 8 / span 3;
+    }
+  }
+}
+
+.grid--layout3 {
+  :nth-child(1), :nth-child(3) {
+    grid-column: 6 / span 7;
+  }
+
+  :nth-child(2) {
+    grid-column: 3 / span 3;
+  }
+
+  @include u.breakpoint(desktop) {
+    :nth-child(1), :nth-child(3) {
+      grid-column: 4 / span 7;
+    }
+    :nth-child(2) {
+      grid-column: 1 / span 3;
+    }
+  }
+}
+
+.grid--layout4 {
+  :nth-child(1), :nth-child(3) {
+    grid-column: 1 / span 7;
+  }
+
+  :nth-child(2) {
+    grid-column: 8 / span 3;
+  }
+}
+
+@media (max-width: u.rem(500)) {
+  .grid.grid--layout1, .grid.grid--layout3 {
+    grid-template-columns: 25% auto;
+  }
+
+  .grid.grid--layout2, .grid.grid--layout4 {
+    grid-template-columns: auto 25%;
+  }
+
+  .grid {
+    gap: u.rem(10) u.rem(16);
+
+    :nth-child(1) {
+      align-self: center;
+    }
+
+    :nth-child(2) {
+      grid-row: 1 / span 1;
+    }
+
+    :nth-child(3) {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+    }
+  }
+
+  .grid--layout1, .grid--layout3 {
+    :nth-child(1) {
+      grid-column: 2 / span 1;
+    }
+
+    :nth-child(2) {
+      grid-column: 1 / span 1;
+    }
+  }
+
+  .grid--layout2, .grid--layout4 {
+    :nth-child(1) {
+      grid-column: 1 / span 1;
+    }
+
+    :nth-child(2) {
+      grid-column: 2 / span 1;
+    }
+  }
+}
